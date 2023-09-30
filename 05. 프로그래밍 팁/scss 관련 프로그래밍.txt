@@ -1,0 +1,12 @@
+SCSS 관련 정보
+
+live sass Compiler 확장자 설치
+설정에서 live sass 들어가서
+
+sudo npm i -g sass
+
+sass--watch scss/style.scss css/style.css
+
+
+관련 블로그
+https://haneunbi.github.io/2020/09/23/scss-to-css/

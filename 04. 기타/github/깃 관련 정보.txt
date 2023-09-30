@@ -1,0 +1,361 @@
+git
+
+git bash 실행
+
+환경설정하기
+
+git config --global user.name "skymelod"
+
+
+git config --global user.email "skymelod@naver.com"
+
+
+git config --list
+
+
+
+
+new terminal
+맨 처음에 올릴 때
+> git init
+
+.은 전부라는 뜻임
+>git add . 
+
+
+git status
+
+히스토리를 만드는 것
+git commit -m "first comit" 
+
+git remote
+
+git origin master
+
+git push origin master
+
+git remote -v
+
+
+prettier - code formatter 
+> 코드를 정렬해줌
+
+freshman을 위한 공간
+git checkout -b freshman
+
+
+git push origin freshman
+
+Deary my senior
+
+
+동기화 시키기
+1. 
+git add .
+git commit -m
+
+git push origin master
+
+warning:LF will be replaced by CRLF the next time Git touches it
+
+	git config --global core.autocrlf true( input)
+	> window와 mac의 \r를 해결해줌
+window라면 true로 mac이라면 input으로 설정하기
+
+settings에서 exclude를 지우면 .git 폴더가 나온다
+
+-----------
+git graph 
+확장자
+
+
+-- 다른 버전 확인하는 방법 -----
+git checkout (id  앞부분만 해도 됨)
+
+head : 어떤 시점인지 알려줌
+main / master : 현재의 시점
+
+마지막으로 돌아오는 방법
+git checkout (commit id)
+git checkout main
+
+원하는 곳으로 가는 방법
+> git checkout (commit id)
+
+
+파일 생성 작성 저장
+vim 3.txt
+
+i
+esc
+:wq
+
+확인
+cat f1.txt
+
+git status
+
+버전 관리 시작해
+git add f1.txt
+
+git이 처음이라면 이름을 세팅해야한다.
+git config --global user.name skymelod
+git config --global user.email skymelod@naver.com
+
+왜 바뀌었는지 메모 적는 것
+git commit
+
+i :wq
+
+버전 확인하기: git log
+
+1. 파일생성 (수정)
+vim f1.txt 
+
+2. 현재 상태 확인하기
+git status
+
+3. git에 생성(수정)한 파일 추가하기
+git add f1.txt
+
+4.commit 에 추가하기
+git commit
+
+
+버전 관리 시작
+> git add f2.txt
+
+git add 파일이름.txt > 버전관리 대기 상태로 올린다.
+git commit 버전 관리 상태로 둔다.
+
+git log : 버전 기록을 본다
+git status : 현재 git의 상태를 본다. 
+
+
+소스 상의 차이점을 볼 수 있다.
+git log -p
+
+
+commit 아이디 이전만 볼 수 있음
+git log (commit ID)
+
+commit 사이 소스 상의 차이점을 알 수 있다.
+git diff (commit ID)..(commit ID)
+
+
+어떠한 작업을 했는지를 확인할 수 있다.
+git diff
+> 커밋 전에 자신이 작업한 내용이 적당한지 코드들의 차이점을 통해 확인할 수 있음
+> 마지막 기회
+
+
+커밋 별로 확인한다
+git log -p
+
+
+---------------
+과거로 돌아가기
+
+reset   VS    revert
+
+git reset (commit ID) --hard
+> ID 이후의 버전을 삭제한다. (남아 있지만, 숨겨둔 것)
+
+리셋은 우리 컴퓨터에 대해서만 reset 작업을 해야 한다.
+
+git commit --help
+
+add 없이 바로 들어가는 법
+git commit -a
+
+-m이 뒤에 있는 것을 커밋 메시지로 하겠다
+git commit -am "11"
+
+
+
+
+
+Master	 제품으로 출시되는 브랜치
+Develop	 다음 출시 버전을 개발하는 브랜치
+Feature	 기능을 개발하는 브랜치
+Release	 이번 출시 버전을 준비하는 브랜치
+Hotfix	 출시 버전에서 발생한 버그를 수정하는 브랜치
+
+[INITIAL] — repository를 생성하고 최초에 파일을 업로드 할 때
+[ADD] — 신규 파일 추가
+[UPDATE] — 코드 변경이 일어날때
+[REFACTOR] — 코드를 리팩토링 했을때
+[FIX] — 잘못된 링크 정보 변경, 필요한 모듈 추가 및 삭제
+[REMOVE] — 파일 제거
+[STYLE] — 디자인 관련 변경사항
+
+
+Git 브랜칭 전략
+
+Github flow
+> Master에 합치기 전에 브랜치에서 공개 및 테스트 함
+- 오류 발견시 롤백
+
+
+Git flow
+메인: master, develop
+보조: feature, release, hotfix
+
+feature: 하나의 기능을 만들 때 사용
+--no--ff 사용해야함 커밋 기록을 되돌리기 쉬움
+
+Release 브랜치
+> QA를 진행하는 브랜치
+> 버그 수정 및 버전 번호, 빌드 날짜와 같은 메타 데이터를 준비하며 기능 개발은 금지
+> merge 할 때는 -no-ff를 사용하여 기록을 그룹화한다.
+> master로 merge 후에는 tag명령을 통해 버전을 명시한다.
+
+hotfix 브랜치
+> develop에도 머지해야됨
+
+
+----------------순서 ------------------
+1. 레퍼지토리 만들기
+git init
+
+2. 스테이지 올리기
+git add .
+
+3. 첫 커밋 만들기
+git commit -m "first commit"
+
+4. 연동하기
+git remote add origin https://github.com/skymelod/website-skymelod.git
+
+5. 푸시하기
+git push origin master
+
+6. develop 브랜치 만들기
+git checkout -b develop
+
+7. develop 브랜치 올리기
+git push --set-upstream origin develop
+
+8. protect this branch
+_ Require a pull request before merging
+_ Lock branch
+
+9. 마스터 브랜치로 이동
+git checkout master
+
+10. Lock 확인
+git add . 
+git commit -m "check lock"
+git push origin master
+
+11. develop로 이동
+git checkout develop
+
+12. github project에서 todo 만들고 In Progress에서 Convert to Issue에서 리포지토리 설정
+
+13. 이슈의 제목을 누르면 해당 페이지로 이동하고, 브랜치를 새로 설정할 수 있음
+
+---------팀원------
+14. 클론 만들기
+git clone https://github.com/skymelod/Canvas-Practice.git oyc325
+
+15. feature a 이슈 배정하고 브랜치로 만들어서 코딩하기
+
+16. 개발한 것 커밋하고 푸시하기
+git add .
+git commit -m "feature B"
+git push
+
+17. feature B 를 Develop로 PR(풀 리퀘스트) 만들기
+Pull requests 항목으로 가서 New Pull Request 버튼 누르기
+설명 쓰고 Pull request
+
+
+------- 팀장 ------
+18. Files changed 에서 바뀐 점 확인하고 코멘트 남기기
+Comment : 코멘트 남기기
+Approve: 문제 없으니 합친다.
+Request changes: 반려할테니 다시 체크해라
+
+-------팀원 ----
+19. 승인 받은 후 코드 머지하기
+Merge pull request
+
+------ 깃 충돌 ------
+20. Feature A와 Feature B는 버전이 다르고, Develop은 Feature B를 받아들인 상태
+수정 파일 커밋 후 푸시
+
+21. Create Pull request 하기
+
+22. 충돌 발생
+
+23. Command Line 으로 충돌해결
+
+-1 develop 브랜치에 최신코드 가져오기
+	git checkout develop
+	git pull origin develop
+
+-2 feature A로 돌아가기
+	git checkout -
+
+-3 develop과 merge 해주기 
+	git merge develop
+	
+-4 충돌 부분 서로 의논하기
+-5 코드가 잘 돌아가는 지 확인하고 확정하기
+
+24. develop에 올리기
+git add .
+git commit -m "resolve conflict"
+git push
+
+
+25. 확인 후 approve 함
+
+26. 상태 변경 In Progress -> Done
+	
+27. 완벽한 코드 Devleop의 코드를 Master로 올림 (배포를 담당하는 사람이 올림)
+New Pull Request에서 
+review 반드시 필요함
+
+
+
+----------충돌 막기 위한 방법
+1. 각자 다른 파일로 작업
+2. 컴포넌트 또는 페이지 별로 스타일 css 파일을 따로 만들어서 작업하는게 좋음
+3. 작은 테스크 끝났을 때 커밋하기
+4. 머지 자주 하기
+5. 풀 자주하기
+
+---------확장성 높은 코드 짜기
+1. 매개변수 많이 이용하자
+2. 기본값 반환은 재사용성을 해칠 수 있다.
+3. 불필요한 가정은 코드 재사용을 해침 / 반복문을 적재적소에, 섣부른 최적화 X
+4. 열거형 값을 암묵적으로 처리하지 말자
+5. 값이 없을 때 널 혹은 에러를 반환하게 해야 함.
+6. 중요한 값은 옵셔널이면 안 됨, 무조건 필수값
+7. 웬만하면 const를 사용하고 웬만하면 값 복제를 이용 특히 배열이나 객체
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

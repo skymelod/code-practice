@@ -1,0 +1,32 @@
+react 설치
+npx create-react-app ./
+npm init react-app my-app
+
+
+시작
+npm start
+
+
+배포
+npm run build
+npx serve -s build
+
+8 분 21초
+
+onSubit=
+확인
+리로드 안 되게 만듬
+
+라우터 되는 것 보기 설치
+my-app 폴더에서
+npm install react-router-dom
+> 화면 전환 처리 하게 만들어줌
+
+index.js에서 
+import {BrowserRouter} from 'react-router-dom'
+<BrowserRouter><App /></BrowserRouter>
+만들어주기,
+
+App.js에서 
+import React from "react";
+import {Routes, Route, Link} from "react-router-dom";
