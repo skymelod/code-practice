@@ -1,0 +1,16 @@
+
+
+npm create vite@latest ./ -- --template react
+npx tailwindcss init -p
+npm install --legacy-peer-deps @react-three/fiber @react-three/drei maath react-tilt react-vertical-timeline-component @emailjs/browser framer-motion react-router-dom
+yarn create vite
+
+
+rm -rf node_modules
+rm -f package-lock.json
+yarn cache clean
+yarn install
+
+yarn add -D tailwindcss
+
+yarn dev
